@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/transport"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/transport/utils"
+	"github.com/init-vlad/socketio/engineio/transport"
+	"github.com/init-vlad/socketio/engineio/transport/utils"
 
 	"github.com/gorilla/websocket"
 )

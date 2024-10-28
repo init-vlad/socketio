@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"sync"
 
-	"github.com/byinit/chat-service/libs/socketiolib/socketio/parser"
+	"github.com/init-vlad/socketio/socketio/parser"
 )
 
 // Handler contains all logics for working with connections

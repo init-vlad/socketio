@@ -1,6 +1,6 @@
 package packet
 
-import "github.com/byinit/chat-service/libs/socketiolib/engineio/frame"
+import "github.com/init-vlad/socketio/engineio/frame"
 
 // Type is the type of packet
 type Type int

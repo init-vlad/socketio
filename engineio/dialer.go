@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/packet"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/transport"
+	"github.com/init-vlad/socketio/engineio/packet"
+	"github.com/init-vlad/socketio/engineio/transport"
 )
 
 // Dialer is dialer configure.

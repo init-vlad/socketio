@@ -8,8 +8,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/payload"
-	"github.com/byinit/chat-service/libs/socketiolib/logger"
+	"github.com/init-vlad/socketio/engineio/payload"
+	"github.com/init-vlad/socketio/logger"
 )
 
 type serverConn struct {

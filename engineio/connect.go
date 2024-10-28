@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/session"
+	"github.com/init-vlad/socketio/engineio/session"
 )
 
 // Conn is connection by client session

@@ -3,7 +3,7 @@ package socketio
 import (
 	"net/http"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio"
+	"github.com/init-vlad/socketio/engineio"
 )
 
 // Server is a go-socket.io server.

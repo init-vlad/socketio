@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/frame"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/packet"
+	"github.com/init-vlad/socketio/engineio/frame"
+	"github.com/init-vlad/socketio/engineio/packet"
 )
 
 // FrameReader reads a frame. It needs be closed before next reading.

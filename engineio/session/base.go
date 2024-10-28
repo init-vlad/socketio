@@ -1,6 +1,6 @@
 package session
 
-import "github.com/byinit/chat-service/libs/socketiolib/engineio/frame"
+import "github.com/init-vlad/socketio/engineio/frame"
 
 // FrameType is type of message frame.
 type FrameType frame.Type

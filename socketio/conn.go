@@ -9,8 +9,8 @@ import (
 	"reflect"
 	"sync"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio"
-	"github.com/byinit/chat-service/libs/socketiolib/socketio/parser"
+	"github.com/init-vlad/socketio/engineio"
+	"github.com/init-vlad/socketio/socketio/parser"
 )
 
 // Conn is a connection in go-socket.io

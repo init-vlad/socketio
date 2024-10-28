@@ -7,7 +7,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/byinit/chat-service/libs/socketiolib/socketio/parser"
+	"github.com/init-vlad/socketio/socketio/parser"
 )
 
 // Namespace describes a communication channel that allows you to split the logic of your application

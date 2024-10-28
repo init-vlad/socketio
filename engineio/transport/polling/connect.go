@@ -10,11 +10,11 @@ import (
 	"net/url"
 	"sync/atomic"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/packet"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/payload"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/transport"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/transport/utils"
-	"github.com/byinit/chat-service/libs/socketiolib/logger"
+	"github.com/init-vlad/socketio/engineio/packet"
+	"github.com/init-vlad/socketio/engineio/payload"
+	"github.com/init-vlad/socketio/engineio/transport"
+	"github.com/init-vlad/socketio/engineio/transport/utils"
+	"github.com/init-vlad/socketio/logger"
 )
 
 type clientConn struct {

@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/session"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/transport"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/transport/polling"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/transport/websocket"
+	"github.com/init-vlad/socketio/engineio/session"
+	"github.com/init-vlad/socketio/engineio/transport"
+	"github.com/init-vlad/socketio/engineio/transport/polling"
+	"github.com/init-vlad/socketio/engineio/transport/websocket"
 )
 
 // Options is options to create a server.

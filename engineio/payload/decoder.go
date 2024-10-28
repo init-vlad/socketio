@@ -5,8 +5,8 @@ import (
 	"encoding/base64"
 	"io"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/frame"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/packet"
+	"github.com/init-vlad/socketio/engineio/frame"
+	"github.com/init-vlad/socketio/engineio/packet"
 )
 
 type byteReader interface {

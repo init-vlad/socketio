@@ -3,7 +3,7 @@ package packet
 import (
 	"io"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/frame"
+	"github.com/init-vlad/socketio/engineio/frame"
 )
 
 type fakeOneFrameDiscarder struct{}

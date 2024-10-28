@@ -8,11 +8,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/frame"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/packet"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/payload"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/transport"
-	"github.com/byinit/chat-service/libs/socketiolib/logger"
+	"github.com/init-vlad/socketio/engineio/frame"
+	"github.com/init-vlad/socketio/engineio/packet"
+	"github.com/init-vlad/socketio/engineio/payload"
+	"github.com/init-vlad/socketio/engineio/transport"
+	"github.com/init-vlad/socketio/logger"
 )
 
 // Pauser is connection which can be paused and resumes.

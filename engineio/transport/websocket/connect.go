@@ -7,8 +7,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/packet"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/transport"
+	"github.com/init-vlad/socketio/engineio/packet"
+	"github.com/init-vlad/socketio/engineio/transport"
 
 	"github.com/gorilla/websocket"
 )

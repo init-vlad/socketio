@@ -5,8 +5,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/payload"
-	"github.com/byinit/chat-service/libs/socketiolib/engineio/transport"
+	"github.com/init-vlad/socketio/engineio/payload"
+	"github.com/init-vlad/socketio/engineio/transport"
 )
 
 // Transport is the transport of polling.

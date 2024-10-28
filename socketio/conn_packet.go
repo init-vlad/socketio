@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/byinit/chat-service/libs/socketiolib/socketio/parser"
+	"github.com/init-vlad/socketio/socketio/parser"
 )
 
 func (c *conn) ackPacketHandler(header parser.Header) error {
