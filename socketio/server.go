@@ -112,10 +112,14 @@ func (s *Server) BroadcastToRoom(namespace string, room, event string, args ...i
 	return nspHandler.Send(room, event, args...)
 }
 
+func (s *Server) BroadcastToRoomExcept(namespace string, room, event string, ids []string, args ...interface{}) bool {
+	nspHandler := s.getNamespaceHandler(namespace)
+	return nspHandler.SendExcept(room, event, ids, args...)
+}
+
 // BroadcastToNamespace broadcasts given event & args to all the connections in the same
 func (s *Server) BroadcastToNamespace(namespace string, event string, args ...interface{}) bool {
-	nspHandler := s.getNamespaceHandler(namespace)
-	return nspHandler.SendAll(event, args...)
+	return s.BroadcastToNamespaceExcept(namespace, event, []string{}, args...)
 }
 
 // BroadcastToNamespace broadcasts given event & args to all the connections in the same

@@ -61,6 +61,26 @@ func (bc *broadcastLocal) send(room string, event string, args ...interface{}) {
 	})
 }
 
+func (bc *broadcastLocal) sendExcept(room string, event string, ids []string, args ...interface{}) {
+	conns, ok := bc.getOccupants(room)
+
+	if !ok {
+		return
+	}
+
+	conns.forEach(func(id string, conn Conn) bool {
+		// TODO: review this concurrent
+		for _, idExcept := range ids {
+			if id == idExcept {
+				return true
+			}
+		}
+
+		go conn.Emit(event, args...)
+		return true
+	})
+}
+
 func (bc *broadcastLocal) sendAll(event string, args ...interface{}) {
 	bc.roomsSync.forEach(func(_ string, conn *connMap) bool {
 		conn.forEach(func(_ string, conn Conn) bool {
@@ -118,12 +138,31 @@ func (bc *broadcastLocal) getRoomsByConn(connection Conn) []string {
 	var rooms []string
 	bc.roomsSync.forEach(func(room string, cm *connMap) bool {
 		cm.forEach(func(connID string, _ Conn) bool {
-			if connection.ID() == connID {
+			if connection != nil && connection.ID() == connID {
+				rooms = append(rooms, room)
+			} else {
 				rooms = append(rooms, room)
 			}
+
 			return true
 		})
+
 		return true
 	})
+	return rooms
+}
+
+func (bc *broadcastLocal) getAllRooms() []string {
+	var rooms []string
+
+	bc.roomsSync.forEach(func(room string, cm *connMap) bool {
+		cm.forEach(func(connID string, _ Conn) bool {
+			rooms = append(rooms, room)
+			return true
+		})
+
+		return true
+	})
+
 	return rooms
 }

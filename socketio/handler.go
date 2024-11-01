@@ -93,6 +93,14 @@ func (nh *Handler) Send(room string, event string, args ...interface{}) bool {
 	return true
 }
 
+func (nh *Handler) SendExcept(room string, event string, ids []string, args ...interface{}) bool {
+	if nh == nil {
+		return false
+	}
+	nh.broadcast.SendExcept(room, event, ids, args...)
+	return true
+}
+
 func (nh *Handler) SendAll(event string, args ...interface{}) bool {
 	if nh == nil {
 		return false
@@ -121,6 +129,7 @@ func (nh *Handler) Rooms(conn Conn) []string {
 	if nh == nil {
 		return nil
 	}
+
 	return nh.broadcast.Rooms(conn)
 }
 

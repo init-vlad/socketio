@@ -5,17 +5,18 @@ type EachFunc func(Conn)
 
 // Broadcaster is the adaptor to handle broadcasts & rooms for socket.io server API
 type Broadcaster interface {
-	Join(room string, connection Conn)                             // Join causes the connection to join a room
-	Leave(room string, connection Conn)                            // Leave causes the connection to leave a room
-	LeaveAll(connection Conn)                                      // LeaveAll causes given connection to leave all rooms
-	Clear(room string)                                             // Clear causes removal of all connections from the room
-	Send(room, event string, args ...interface{})                  // Send will send an event with args to the room
-	SendAll(event string, args ...interface{})                     // SendAll will send an event with args to all the rooms
-	SendAllExcept(event string, ids []string, args ...interface{}) // SendAll will send an event with args to all the rooms
-	ForEach(room string, f EachFunc)                               // ForEach sends data by DataFunc, if room does not exits sends nothing
-	Len(room string) int                                           // Len gives number of connections in the room
-	Rooms(connection Conn) []string                                // Gives list of all the rooms if no connection given, else list of all the rooms the connection joined
-	AllRooms() []string                                            // Gives list of all the rooms the connection joined
+	Join(room string, connection Conn)                                // Join causes the connection to join a room
+	Leave(room string, connection Conn)                               // Leave causes the connection to leave a room
+	LeaveAll(connection Conn)                                         // LeaveAll causes given connection to leave all rooms
+	Clear(room string)                                                // Clear causes removal of all connections from the room
+	Send(room, event string, args ...interface{})                     // Send will send an event with args to the room
+	SendExcept(room, event string, ids []string, args ...interface{}) // Send will send an event with args to the room
+	SendAll(event string, args ...interface{})                        // SendAll will send an event with args to all the rooms
+	SendAllExcept(event string, ids []string, args ...interface{})    // SendAll will send an event with args to all the rooms
+	ForEach(room string, f EachFunc)                                  // ForEach sends data by DataFunc, if room does not exits sends nothing
+	Len(room string) int                                              // Len gives number of connections in the room
+	Rooms(connection Conn) []string                                   // Gives list of all the rooms if no connection given, else list of all the rooms the connection joined
+	AllRooms() []string                                               // Gives list of all the rooms the connection joined
 }
 
 // broadcast gives Join, Leave & BroadcastTO server API support to socket.io along with room management
@@ -58,6 +59,10 @@ func (bc *broadcast) Send(room, event string, args ...interface{}) {
 	bc.send(room, event, args...)
 }
 
+func (bc *broadcast) SendExcept(room, event string, ids []string, args ...interface{}) {
+	bc.sendExcept(room, event, ids, args...)
+}
+
 // SendAll sends given event & args to all the connections to all the rooms
 func (bc *broadcast) SendAll(event string, args ...interface{}) {
 	bc.sendAll(event, args...)
@@ -81,6 +86,10 @@ func (bc *broadcast) Len(room string) int {
 // no connection is given, in case of a connection is given, it gives
 // list of all the rooms the connection is joined to
 func (bc *broadcast) Rooms(conn Conn) []string {
+	if conn == nil {
+		return bc.getAllRooms()
+	}
+
 	return bc.getRoomsByConn(conn)
 }
 

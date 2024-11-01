@@ -68,6 +68,11 @@ func (bc *broadcastRemote) Send(room, event string, args ...interface{}) {
 	bc.remote.send(room, event, args...)
 }
 
+func (bc *broadcastRemote) SendExcept(room, event string, ids []string, args ...interface{}) {
+	bc.local.sendExcept(room, event, ids, args...)
+	bc.remote.local.sendExcept(room, event, ids, args...)
+}
+
 // SendAll sends given event & args to all the connections to all the rooms.
 func (bc *broadcastRemote) SendAll(event string, args ...interface{}) {
 	bc.local.sendAll(event, args...)
